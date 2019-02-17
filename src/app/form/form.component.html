@@ -2,20 +2,52 @@
   <div><input type="text" 
     formControlName="firstName"
     placeholder="first name">
+    <label 
+       style="color: tomato;" 
+      *ngIf = "formGroup.get('firstName').invalid &&
+               formGroup.get('firstName').touched &&
+               formGroup.get('firstName').errors['required']">Required.</label>
+               <label 
+       style="color: tomato;" 
+      *ngIf = "formGroup.get('firstName').invalid &&
+               formGroup.get('firstName').touched &&
+               formGroup.get('firstName').errors['minlength']">min is 2.</label>
   </div>
   <div><input type="text" 
     formControlName="lastName"
     placeholder="last name">
+    <label 
+       style="color: tomato;" 
+      *ngIf = "formGroup.get('lastName').invalid &&
+               formGroup.get('lastName').touched &&
+               formGroup.get('lastName').errors['required']">Required.</label>
+               <label 
+       style="color: tomato;" 
+      *ngIf = "formGroup.get('lastName').invalid &&
+               formGroup.get('lastName').touched &&
+               formGroup.get('lastName').errors['minlength']">min is 2.</label>
   </div>
   <div><input type="text" 
     formControlName="email"
     placeholder="E-mail">
+    <label 
+       style="color: tomato;" 
+      *ngIf = "formGroup.get('email').invalid &&
+               formGroup.get('email').touched &&
+               formGroup.get('email').errors['email']">email is invalid.</label>
   </div>
-  <div><input type="number" 
+  <div>
+    <input type="number" 
     formControlName="age"
     placeholder="Age"
-    min = 0
-    max = 99>
+    min = "0"
+    max = "99">
+    <label 
+       style="color: tomato;" 
+      *ngIf = "formGroup.get('age').invalid &&
+               formGroup.get('age').touched &&
+               formGroup.get('age').errors['min']
+               ">Between is 0 and 99.</label>
   </div>
   <button>Submit</button>
 </form>
